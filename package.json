@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsc-watch --onSuccess \"node dist/app.js\"",
     "t": "tsc-watch --onSuccess \"node dist/test.js\"",
-    "mod": "tsc-watch --onSuccess \"node dist/mod/mod1.js\"",
+    "mod": "tsc-watch --onSuccess \"node dist/suma.js\"",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "doc": "typedoc --includes ./src/**/*.ts",
