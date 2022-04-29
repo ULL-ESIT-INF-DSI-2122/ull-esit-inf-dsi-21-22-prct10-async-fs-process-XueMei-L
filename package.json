@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc-watch --onSuccess \"node dist/app.js\"",
+    "eje1": "tsc-watch --onSuccess \"node dist/ejercicio01.js\"",
     "t": "tsc-watch --onSuccess \"node dist/test.js\"",
     "mod": "tsc-watch --onSuccess \"node dist/suma.js\"",
     "test": "mocha",

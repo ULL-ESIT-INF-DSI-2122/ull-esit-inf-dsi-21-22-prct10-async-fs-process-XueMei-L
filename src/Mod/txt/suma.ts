@@ -18,14 +18,17 @@ class SumOfListInFile {
             console.log( "Error args.");
         } else {
             // console.log(process.argv[2]); change / remake
-            fs.access(`./txt/${process.argv[2]}`, fs.constants.R_OK, (err) => {
+            fs.access(`../src/Mod/txt/${process.argv[2]}`, fs.constants.R_OK, (err) => {
                 console.log('\n> Checking Permission for reading the file');
                 if (err) {
                     console.error('There is not file to access');
                 } else {
                     console.log(`There is a file called ${process.argv[2]}`);
-                    fs.watch(`./txt/${process.argv[2]}`, (eventType, filename) => {
-                        fs.readFile(`./txt/${filename}`, (err, data) => {
+                    fs.watchFile(`../src/Mod/txt/${process.argv[2]}`, (curr, prev) => {
+                        console.log(`File was ${prev.size} bytes before it was modified.`);
+                        console.log(`Now file is ${curr.size} bytes.`);
+                        const filename = `${process.argv[2]}`;
+                        fs.readFile(`../src/Mod/txt/${filename}`, (err, data) => {
                             if (err) throw err;
                             const arr = data.toString().replace(/\r\n/g, '\n').split('\n');
                             let sum = 0;
@@ -34,8 +37,6 @@ class SumOfListInFile {
                             }
                             console.log(`sum = ${sum}`);
                         });
-                        console.log(eventType);
-                        console.log(filename);
                     });
                 }
               });
