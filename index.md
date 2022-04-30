@@ -201,8 +201,11 @@ fs.access:: es una funcion de `fs`, lo cual, es una función asíncrona que comp
 
 fs.constants: es una funcion de `fs`, que contiene todo los valores (flags) para `fs.access`. En otras palabras, `fs.access` debe recibir unas de las siguientes constantes `R_OK`, `W_OK`, `X_OK` (flas de permisos de lectura, escritua, ejeccion respectivamente), según lo recibido se comprueba el permiso en específico del usuario. En este caso usa ‘F_OK’ para comprobar si el usuario puede ver el fichero.
 
-
 **El resultado final es lo siguiente:**
+F_OK: Comprueba si el fichero existe. Pero no comprueba sus permisos
+R_OK: Comprueba si el fichero puede ser leído
+W_OK: Comprueba si un fichero puede ser escrito
+X_OK: Comprueba si un fichero puede ser ejecutado
 
 ![eje1_ejecucion](img/eje1.png)
 
