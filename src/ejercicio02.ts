@@ -2,6 +2,7 @@ import {spawn} from 'child_process';
 import * as yargs from 'yargs';
 import * as fs from 'fs';
 import {constants} from 'fs';
+const chalk = require('chalk');
 
 /**
  * Yargs commands
@@ -31,10 +32,10 @@ yargs.command({
   handler(argv) {
     if (typeof argv.file === 'string' && typeof argv.pipe === 'boolean') {
       if (argv.pipe) {
-        console.log(`Using with pepi mode....`);
+        console.log(chalk.blue(`Command with pipe mode....`));
         withPipe(argv.file, argv.grep as string);
       } else {
-        console.log(`Using without pepi mode....`);
+        console.log(chalk.blue(`Command without pepi mode....`));
         withoutPipe(argv.file, argv.grep as string);
       }
     }
@@ -50,9 +51,9 @@ yargs.command({
 function withPipe(filename: string, word?: string) {
   fs.access(filename, constants.F_OK, (err) => {
     if (err) {
-      console.log(`File ${filename} does not exist`);
+      console.log(chalk.red(`File ${filename} does not exist`));
     } else {
-      console.log(`Great! Accessing file [${filename}]!`);
+      console.log(chalk.green(`Great! Accessing file [${filename}]!`));
 
       // Subprocess
       const cat = spawn(`cat`, [`${filename}`]);
@@ -79,13 +80,11 @@ function withPipe(filename: string, word?: string) {
  * @param word word that to filter
  */
 function withoutPipe(filename: string, word?: string) {
-  console.log(`without pipe.....`);
-
   fs.access(filename, constants.F_OK, (err) => {
     if (err) {
-      console.log(`File ${filename} does not exist`);
+      console.log(chalk.red(`File ${filename} does not exist`));
     } else {
-      console.log(`Great! Accessing file [${filename}]!`);
+      console.log(chalk.green(`Great! Accessing file [${filename}]!`));
       const cat = spawn(`cat`, [`${filename}`]);
       const grep = spawn('grep', [`${word}`]);
       let grepOutput = '';
@@ -94,7 +93,8 @@ function withoutPipe(filename: string, word?: string) {
 
       grep.stdout.on('data', (piece) => {
         grepOutput += piece;
-        console.log(grepOutput);
+        console.log(`Sentences with the keyword [${word}] \n`);
+        console.log(chalk.yellow(grepOutput));
       });
     }
   });
