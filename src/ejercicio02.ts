@@ -35,7 +35,7 @@ yargs.command({
         console.log(chalk.blue(`Command with pipe mode....`));
         withPipe(argv.file, argv.grep as string);
       } else {
-        console.log(chalk.blue(`Command without pepi mode....`));
+        console.log(chalk.blue(`Command without pipe mode....`));
         withoutPipe(argv.file, argv.grep as string);
       }
     }

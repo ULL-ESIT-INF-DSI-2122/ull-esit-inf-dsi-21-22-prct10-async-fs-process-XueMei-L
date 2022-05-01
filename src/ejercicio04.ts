@@ -145,7 +145,9 @@ yargs.command({
   },
 }).demandCommand(1, 'You should try using a command');
 
-
+/**
+ * Move a directory to other path
+ */
 yargs.command({
   command: 'move',
   describe: 'Moves contents from files or directory from an ' +
@@ -165,12 +167,10 @@ yargs.command({
   handler(argv) {
     if (typeof argv.origin === 'string' && typeof argv.destiny === 'string' &&
       existsSync(argv.origin)) {
-      // Si la ruta de origen es un diretorio, se debe copiar dicho directorio
-      // y todo su contenido en la ruta destino
       if (lstatSync(argv.origin).isDirectory()) {
         const cp = spawn('cp', ['-r', argv.origin, argv.destiny]);
         cp.on('close', () => {
-          process.stdout.write('Content copied succesfully!\n');
+          process.stdout.write('Content copied Mosuccesfully!\n');
         });
       } else {
         const mv = spawn('mv', [argv.origin, argv.destiny]);
