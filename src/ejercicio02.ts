@@ -58,18 +58,15 @@ function withPipe(filename: string, word?: string) {
       // Subprocess
       const cat = spawn(`cat`, [`${filename}`]);
       const grep = spawn('grep', [`${word}`]);
-      let grepOutput = '';
 
       cat.stdout.pipe(grep.stdin);
-
-      grep.stdout.on('data', (piece) => {
-        grepOutput += piece;
-      });
 
       // Utilizando modo pipe, imprime directamente
       // Si no utiliza el modo pipe seria con console.log
       // console.log(grepOutput);
-      grep.stdout.pipe(process.stdout);
+      grep.stdout.on('data', (piece) => {
+        process.stdout.write(piece);
+      });
     }
   });
 }

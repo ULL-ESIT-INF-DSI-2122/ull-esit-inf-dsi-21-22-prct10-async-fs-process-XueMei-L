@@ -1,7 +1,8 @@
 {
     "out": "./docs",
     "entryPoints": [
-        "./src/app.ts",
-        "./src/notes.ts"
+        "./src/ejercicio01.ts",
+        "./src/ejercicio02.ts",
+        "./src/ejercicio03.ts"
     ]
 }
