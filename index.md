@@ -234,28 +234,31 @@ node dist/app.js delete --user="User1" --title="TestNote_01"
 verá que en el otro terminal, mostrando los mensajes de cambios.
 
 ### 3.4 Ejercicio 4  ###
-En el ejercicio
-identify command
-Para este comando lo que recibimos es una ruta, a través de la cual comprobamos primero si dicha ruta existe para lanzar un error en caso de que no. Si existe la ruta, compruebo si es un directorio haciendo uso de lo siguiente:
+1. Dada una ruta concreta, mostrar si es un directorio o un fichero.
+Para este subapartado， usamos el metodo que proporciona `fs`, `fs.lstat(`${argv.path}`, (err, stats) =>{})`, donde stats puede identificar que si es una directorio o un ficero.
 
-lstatSync(argv.path).isDirectory();
-Por lo tanto, si la ruta lleva a un directorio, mostraremos un mensaje de que es un directorio, de lo contrario es que es un fichero.
+2. Crear un nuevo directorio a partir de una nueva ruta que recibe como parámetro.
+Listar los ficheros dentro de un directorio.
+Para crar un directorio nuevo, usamos el comando de linux/unix, `mkdir`. Identifica que si ya existe el directorio que quiere crear, en el caso de que no existe, si se puede crear.
 
-create command
-Para este comando lo que recibimos es una ruta también, a través de la cual comprobamos primero si dicha ruta existe para lanzar un error en caso de que sí exista puesto que no se puede crear el directorio si ya existe. Si no existe la ruta spawneo un proceso mkdir pasándole la ruta para crearla y luego mostrar un mensaje de éxito.
+3. Mostrar el contenido de un fichero (similar a ejecutar el comando cat).
+Borrar ficheros y directorios.
+Para mostrar el fichero, simplemente usamos el fichero `cat`, asi se puede mostrar el contenido de un fichero.
 
-## 4. Conclusiones
+4. Mover y copiar ficheros y/o directorios de una ruta a otra. Para este caso, la aplicación recibirá una ruta origen y una ruta destino. En caso de que la ruta origen represente un directorio, se debe copiar dicho directorio y todo su contenido a la ruta destino.
+Para mover un fichero a otro, necesitamos dos parametros, uno es ruta original, y la otra es la ruta destinada.
 
-## 5. Resultados
+
+## 4. Resultados
 ![eje1](./img/eje1.png)
 ![eje2](./img/eje2.png)
 ![eje3](./img/eje3.png)
 ![eje3](./img/eje4.png)
 
-## 6. Testing
+## 5. Testing
 ![testing](./img/eje22.png)
 
-## 7. Bibliografía
+## 6. Bibliografía
 - [Apuntes de la clases](https://ull-esit-inf-dsi-2122.github.io/typescript-theory/)
 - [Guión de la práctica](https://ull-esit-inf-dsi-2122.github.io/prct07-music-dataModel/)
 - [Inquirer.js](https://www.npmjs.com/package/inquirer)
