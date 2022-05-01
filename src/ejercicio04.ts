@@ -4,6 +4,9 @@ import * as fs from "fs";
 import {existsSync, lstatSync} from "fs";
 import yargs from "yargs";
 
+/**
+ * Command that check is it a file or a directory
+ */
 yargs.command({
   command: 'check',
   describe: 'Check is it a file or a directory',
@@ -31,7 +34,9 @@ yargs.command({
   },
 }).demandCommand(1, 'You should try using a command');
 
-
+/**
+ * Command that to create a new directory
+ */
 yargs.command({
     command: 'mkdir',
     describe: 'Add a new directory',
@@ -56,7 +61,9 @@ yargs.command({
     },
 }).demandCommand(1, 'You should try using a command');
 
-
+/**
+ * Command that to list all files of directory
+ */
 yargs.command({
   command: 'ls',
   describe: 'List all files of directory',
@@ -79,32 +86,12 @@ yargs.command({
   },
 }).demandCommand(1, 'You should try using a command');
 
+/**
+ * Command that show a file's content
+ */
 yargs.command({
   command: 'cat',
-  describe: 'Show file´scontent',
-  builder: {
-    file: {
-      describe: 'file',
-      demandOption: true,
-      type: 'string',
-    },
-  },
-  handler(argv) {
-    if (typeof argv.path === 'string' && existsSync(argv.path)) {
-      const cat = spawn('cat', [argv.path]);
-      cat.stdout.on('data', (output) => {
-        process.stdout.write(output);
-      });
-    } else {
-      console.log('Error opening the file: Unexisting path');
-    }
-  },
-}).demandCommand(1, 'You should try using a command');
-
-
-yargs.command({
-  command: 'cat',
-  describe: 'Show file´scontent',
+  describe: 'Show file s content',
   builder: {
     path: {
       describe: 'file',
@@ -124,7 +111,9 @@ yargs.command({
   },
 }).demandCommand(1, 'You should try using a command');
 
-
+/**
+ * Command that to remove a directory or a file
+ */
 yargs.command({
   command: 'rm',
   describe: 'Given a path to a file or directory, removes it',
@@ -174,8 +163,7 @@ yargs.command({
     },
   },
   handler(argv) {
-    if (typeof argv.origin === 'string' &&
-      typeof argv.destiny === 'string' &&
+    if (typeof argv.origin === 'string' && typeof argv.destiny === 'string' &&
       existsSync(argv.origin)) {
       // Si la ruta de origen es un diretorio, se debe copiar dicho directorio
       // y todo su contenido en la ruta destino

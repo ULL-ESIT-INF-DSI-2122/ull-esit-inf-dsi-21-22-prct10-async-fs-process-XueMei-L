@@ -59,11 +59,9 @@ function withPipe(filename: string, word?: string) {
       const cat = spawn(`cat`, [`${filename}`]);
       const grep = spawn('grep', [`${word}`]);
 
+      // Using pipe mode
       cat.stdout.pipe(grep.stdin);
 
-      // Utilizando modo pipe, imprime directamente
-      // Si no utiliza el modo pipe seria con console.log
-      // console.log(grepOutput);
       grep.stdout.on('data', (piece) => {
         process.stdout.write(piece);
       });
@@ -86,7 +84,12 @@ function withoutPipe(filename: string, word?: string) {
       const grep = spawn('grep', [`${word}`]);
       let grepOutput = '';
 
-      cat.stdout.pipe(grep.stdin);
+      cat.stdout.on('data', (piece) => {
+        grep.stdin.write(piece);
+      });
+      cat.on('close', () => {
+        grep.stdin.end();
+      });
 
       grep.stdout.on('data', (piece) => {
         grepOutput += piece;
