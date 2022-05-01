@@ -87,7 +87,7 @@ function withoutPipe(filename: string, word?: string) {
       cat.stdout.on('data', (piece) => {
         grep.stdin.write(piece);
       });
-      
+
       cat.on('close', () => {
         grep.stdin.end();
       });

@@ -219,10 +219,30 @@ En el caso de que hay que usar pipe. simplemente usamos `cat.stdoout.pipe(grep.s
 En otro caso, simplemente creamos un subproceso, y cremos una variable para guardar el resulado.
 
 ### 3.3 Ejercicio 3 ###
-
+En este ejericicio, usamos la funcion watch para detectar los cambios de fichero, como comando, solo tiene un parametro que es el usuario. Ejecutamos en el terminar el comando 
+`node dist/ejercicio03/ejercicio03.js watch --user user1`
+y abrimos otro terminado ,  usando la practica anterior, si ejecutamos los siguientes comandos de la practica anterior
+```
+node dist/app.js add --user="User3" --title="TestNote_01" --body="This is a test note." --color="blue"
+```
+```
+node dist/app.js modify --user="User3" --title="TestNote_01" --type="color" --color="green"
+```
+```
+node dist/app.js delete --user="User1" --title="TestNote_01"
+```
+verá que en el otro terminal, mostrando los mensajes de cambios.
 
 ### 3.4 Ejercicio 4  ###
+En el ejercicio
+identify command
+Para este comando lo que recibimos es una ruta, a través de la cual comprobamos primero si dicha ruta existe para lanzar un error en caso de que no. Si existe la ruta, compruebo si es un directorio haciendo uso de lo siguiente:
 
+lstatSync(argv.path).isDirectory();
+Por lo tanto, si la ruta lleva a un directorio, mostraremos un mensaje de que es un directorio, de lo contrario es que es un fichero.
+
+create command
+Para este comando lo que recibimos es una ruta también, a través de la cual comprobamos primero si dicha ruta existe para lanzar un error en caso de que sí exista puesto que no se puede crear el directorio si ya existe. Si no existe la ruta spawneo un proceso mkdir pasándole la ruta para crearla y luego mostrar un mensaje de éxito.
 
 ## 4. Conclusiones
 
