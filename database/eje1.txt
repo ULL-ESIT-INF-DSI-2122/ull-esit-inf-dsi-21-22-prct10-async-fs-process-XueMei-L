@@ -1,4 +1,0 @@
-this is test file
-file eje1.txt
-new file called eje1
-hello World

@@ -209,7 +209,7 @@ X_OK: Comprueba si un fichero puede ser ejecutado
 
 ![eje1_ejecucion](img/eje1.png)
 
-### 3.2 Ejercicio 2
+### 3.2 Ejercicio 2 ###
 
 ### 3.3 Ejercicio 3 ###
 
@@ -220,8 +220,13 @@ X_OK: Comprueba si un fichero puede ser ejecutado
 ## 5. Bibliografía
 
 ## 5. Resultados
+![eje1](eje1.png)
+![eje2](eje2.png)
+![eje3](eje3.png)
+![eje3](eje4.png)
 
 ## 6. Testing
+![testing](eje22.png)
 
 ## 5. Bibliografía
 - [Apuntes de la clases](https://ull-esit-inf-dsi-2122.github.io/typescript-theory/)

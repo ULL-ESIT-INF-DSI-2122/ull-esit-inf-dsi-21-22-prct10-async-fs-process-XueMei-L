@@ -1,14 +1,12 @@
 import 'mocha';
 import {expect} from 'chai';
 import {execSync} from 'child_process';
-import {} from '../src/ejercicio04';
 
 console.log = function() {};
 const test = (args: string): string => {
   return execSync(`node dist/ejercicio02.js cat ${args}`)
       .toString();
 };
-
 
 describe('Ejercicio2 - Tests', () => {
   // With pipe
