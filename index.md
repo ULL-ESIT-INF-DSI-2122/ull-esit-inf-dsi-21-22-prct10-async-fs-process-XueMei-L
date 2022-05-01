@@ -210,25 +210,32 @@ X_OK: Comprueba si un fichero puede ser ejecutado
 ![eje1_ejecucion](img/eje1.png)
 
 ### 3.2 Ejercicio 2 ###
+En este ejericio, usamos el paquete `yargs` para el uso de comandos. Además para dicho ejercicio
+haremos dos funciones para los siguientes requisitos:
+1. Haciendo uso del método pipe de un Stream para poder redirigir la salida de un comando hacia otro.
+2. Sin hacer uso del método pipe, solamente creando los subprocesos necesarios y registrando manejadores a aquellos eventos necesarios para implementar la funcionalidad solicitada.
+
+En el caso de que hay que usar pipe. simplemente usamos `cat.stdoout.pipe(grep.stdin)`.
+En otro caso, simplemente creamos un subproceso, y cremos una variable para guardar el resulado.
 
 ### 3.3 Ejercicio 3 ###
 
+
 ### 3.4 Ejercicio 4  ###
+
 
 ## 4. Conclusiones
 
-## 5. Bibliografía
-
 ## 5. Resultados
-![eje1](eje1.png)
-![eje2](eje2.png)
-![eje3](eje3.png)
-![eje3](eje4.png)
+![eje1](./img/eje1.png)
+![eje2](./img/eje2.png)
+![eje3](./img/eje3.png)
+![eje3](./img/eje4.png)
 
 ## 6. Testing
-![testing](eje22.png)
+![testing](./img/eje22.png)
 
-## 5. Bibliografía
+## 7. Bibliografía
 - [Apuntes de la clases](https://ull-esit-inf-dsi-2122.github.io/typescript-theory/)
 - [Guión de la práctica](https://ull-esit-inf-dsi-2122.github.io/prct07-music-dataModel/)
 - [Inquirer.js](https://www.npmjs.com/package/inquirer)
