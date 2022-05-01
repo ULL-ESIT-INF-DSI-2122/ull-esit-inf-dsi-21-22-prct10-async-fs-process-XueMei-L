@@ -3,6 +3,7 @@
     "entryPoints": [
         "./src/ejercicio01.ts",
         "./src/ejercicio02.ts",
-        "./src/ejercicio03.ts"
+        "./src/ejercicio03/notes.ts",
+        "./src/ejercicio03/ejercicio3.ts"
     ]
 }
