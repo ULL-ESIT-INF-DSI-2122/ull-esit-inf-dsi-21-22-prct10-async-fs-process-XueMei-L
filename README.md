@@ -10,4 +10,4 @@
 
 Acceso a [GitHub Pages](https://ull-esit-inf-dsi-2122.github.io/ull-esit-inf-dsi-21-22-prct10-async-fs-process-XueMei-L/)
 
-## Configuración de Github Actions
+
